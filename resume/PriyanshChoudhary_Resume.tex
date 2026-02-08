@@ -1,0 +1,31 @@
+\documentclass[11pt]{article}
+
+\usepackage{../components/commonheader}
+
+\begin{document}
+\subimport{../components/}{header.tex}
+
+\resumesection{EXPERIENCE}
+\subimport{../components/experiences}{microsoft.tex}
+% \dotfill % Creates the dotted line
+\subimport{../components/experiences}{cloudera.tex}
+
+% \subimport{../components/experiences/}{dell_merged.tex}
+% \subimport{../components/experiences/}{dell.tex}
+% \subimport{../components/experiences/}{hrc.tex}
+% \subimport{../components/experiences/}{kpmg.tex}
+
+\resumesection{SKILLS}
+\subimport{../components/}{skills.tex}
+
+\resumesection{PROJECTS}
+\subimport{../components/projects/}{allProjects.tex}
+% \subimport{../components/projects/}{deardiary.tex}
+% \subimport{../components/projects/}{healthifyme.tex}
+% \subimport{../components/projects/}{virtualcontroller.tex}
+% \subimport{../components/projects/}{portfolio.tex}
+
+\resumesection{EDUCATION}
+\subimport{../components/education}{kiit.tex}
+
+\end{document}

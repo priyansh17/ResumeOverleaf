@@ -1,0 +1,44 @@
+\usepackage{geometry}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fontspec}
+\usepackage{fontawesome}
+\usepackage{bbding}
+\usepackage{import}
+\usepackage{emoji}
+\usepackage{fontawesome}
+\usepackage{xcolor}
+\RequirePackage{xcolor}
+\usepackage{graphicx}
+\graphicspath{ {../components/images/} }
+
+\colorlet{accent}{blue!70!black}
+\colorlet{heading}{black}
+\colorlet{emphasis}{black}
+\colorlet{body}{black!80!white}
+\newcommand{\itemmarker}{{\small\textbullet}}
+\newcommand{\ratingmarker}{\faCircle}
+\newcommand{\Norating}{\faCircleO}
+\setemojifont{TwemojiMozilla}
+
+\pagestyle{empty}
+\geometry{margin=0.3in}
+\setlength\parindent{9pt}
+\setlist{nosep}
+\renewcommand\labelitemi{$\bullet$}
+
+\definecolor{highlight}{RGB}{0,0,0}
+
+\newcommand{\github}{\textcolor{rgb:red,110;green,84;blue,148}{\faGithubSquare}}
+\newcommand{\linkedin}{\textcolor{rgb:red,6;green,108;blue,170}{\faLinkedinSquare}}
+\newcommand{\name}[1]{\begin{center}\section*{\LARGE \color{highlight} #1}\vspace{-0.6cm}\end{center}}
+\newcommand{\topinfo}[1]{\vspace{0.1cm}#1\vspace{0.6cm}}
+\newcommand{\resumesection}[1]{\vspace{-0.3cm}\section*{\color{highlight}#1}\vspace{-0.2cm}\hrule\vspace{0.2cm}}
+
+\newcommand{\cvskill}[2]{%
+\textcolor{emphasis}{\textbf{#1}}\hfill
+\ratingmarker\space \ratingmarker \ratingmarker\ratingmarker}\par%
+\renewcommand{\familydefault}{\sfdefault}
+
