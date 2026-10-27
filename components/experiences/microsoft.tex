@@ -1,26 +1,60 @@
-\textbf{Microsoft} \hfill
-{\faMapMarker} \textbf{{Hyderabad, India}}
+% \textbf{Microsoft} \hfill
+% {\faMapMarker} \textbf{{Hyderabad, India}}
 
-\textit{\textbf{Software Engineer} – Azure BCDR (Business Continuity \& Disaster Recovery)} 
-\hfill {\faCalendar} Aug 2024 - Present \par
+% \textit{\textbf{Software Engineer II} – Azure BCDR (Business Continuity \& Disaster Recovery)} 
+% \hfill {\faCalendar} Aug 2026 - Present \par
+% \begin{itemize}
+%   \item Shipped \textbf{AFS Vault-tier backup \& restore} for AKS with the \textbf{Azure Files CSI} team; PS/CLI for \textbf{Elastic SAN}.
 
+%   \item Designed \textbf{multi-token AAD auth} enabling \textbf{private storage account} Vault \& cross-region restores for escalated customers; rolled AAD out across backend, Portal, PS \& CLI with a \textbf{zero-break fallback}.
 
-Backend-focused engineer for Azure BCDR ensuring that customer workloads stay resilient \& recoverable in the face of disruptions with cloud-native solutions that are scalable \& operationally efficient.
+%   \item Drove security hardening: \textbf{SSRF/MSRC} URL validation, \textbf{NSP enforcement} on BCDR storage, \textbf{S360 CVEs cleared}.
 
+%   \item Fixed production race conditions \& restore blockers, built \textbf{GC audit \& stale-snapshot observability}, onboarded AKS \& PgFlex to \textbf{Aurora}, and unblocked customers on calls \& CRIs.
+% \end{itemize}
+
+% \textit{\textbf{Software Engineer} – Azure BCDR (AKS \& Disk Backup)} 
+% \hfill {\faCalendar} Aug 2024 - Aug 2026 \par
+% \begin{itemize}
+%   \item Designed (HLD + LLD) \& shipped \textbf{Direct Drive (PV2/Ultra) backup \& restore} for AKS and Disk across management, control \& data planes: \textbf{80+ subscriptions, 800+ disks}, Disk RPO \textbf{12h $\rightarrow$ 4h}, zero regressions.
+
+%   \item Built \textbf{Modify Protection} end-to-end (backend, Portal, CLI) for \textbf{100+ customers} \& \textbf{AFS Ops-tier Preview} ($\sim$20\% brownfield adoption); enabled \textbf{11 new regions} \& cross-region restore (\textbf{Azure Core Culture Award}).
+
+%   \item Led \textbf{Velero 1.13 $\rightarrow$ 1.16 upgrade}: \textbf{50\% faster GC}, OOM/CSI leak fixes, \textbf{28 CVEs $\rightarrow$ 0}, \textbf{4 releases}.
+
+%   \item \textbf{Velero OSS Triage member:} 18+ upstream PRs; built Azure \textbf{E2E pipeline} catching a Velero 1.17 regression.
+
+%   \item Raised AKS SLA to \textbf{99.9\%}: Trusted Access resiliency (2--3 monthly failures $\rightarrow$ 0), actionable error mappings (\textbf{+0.2\% SLA}), stabilized BVTs/runners (IR/DR/CRR) and cut merge validation by \textbf{30 min}.
+
+%   \item Closed an \textbf{MSRC token-exfiltration} risk \& credential leaks; resolved customer CRIs as SME on-call, authored TSGs \& dashboards, and used AI/MCP agents to turn \textbf{2--3 day} investigations into hours.
+% \end{itemize}
+
+\textbf{Microsoft} \hfill {\faMapMarker} \textbf{{Hyderabad, India}}
+
+\textit{\textbf{Software Engineer II} – Azure BCDR (Business Continuity \& Disaster Recovery)} 
+\hfill {\faCalendar} Aug 2026 - Present \par
 \begin{itemize}
-  \item Designed and Implemented \textbf{Support for Direct Drive Disks} to enable \textbf{robust AKS backups and restores}.
+  \item Scaled enterprise container recovery and expanded storage support by shipping \textbf{AFS Vault-tier backup \& restore} with the \textbf{Azure Files CSI} team, implementing PowerShell/CLI automation surfaces for \textbf{Elastic SAN}.
 
-  \item Ideated and built the \textbf{Modify Protection feature} and rolled out to add \textbf{flexibility for existing customers} to edit their protected workloads via portal, CLI and backend.
+  \item Unblocked private storage restores for enterprise escalations by designing \textbf{multi-token AAD authentication} with a \textbf{zero-break fallback}, enabling isolated Vault and cross-region restores without exposing storage keys.
 
-  \item \textbf{Opened up} \textbf{Cross-region} AKS backup \& restore support to GA, expanding Azure BCDR availability to \textbf{new customers and geographies.} and received internal recognition via the \textbf{Azure Core Culture Award}.
+  \item Eliminated critical vulnerability vectors across the ecosystem by architecting a reusable \textbf{Anti-SSRF} central library adopted across all repositories, enforcing \textbf{NSP} policies among the Service Fabric clusters.
 
-  \item \textbf{Contributed \& Upstream:} Actively contributing to \textbf{Velero OSS} and \textbf{Azure-specific integrations}; fixed Azure-specific bugs and closed async-workflow gaps downstream and \textbf{earned collaborator/triage status}. 
- 
-  \item \textbf{Improved} Disk \& AKS backup reliability and SLAs (target \textbf{99.99\%)} through feature hardening and validation.  
+  \item Reduced cloud retention costs and prevented production restore blockers by resolving core concurrency race conditions, deploying \textbf{GC audit \& stale-snapshot observability}, and onboarding AKS and PgFlex telemetry pipelines to \textbf{Aurora}.
+\end{itemize}
 
-  \item Built resiliency \& test coverage (BVTs, E2E chaos, and infra) to \textbf{detect regressions earlier} and validate complex restore scenarios.
+\textit{\textbf{Software Engineer} – Azure BCDR (AKS \& Disk Backup)} 
+\hfill {\faCalendar} Aug 2024 - Aug 2026 \par
+\begin{itemize}
+  \item Unlocked high-performance enterprise adoption, onboarding \textbf{80+ subscriptions and 800+ disks} while cutting RPO from \textbf{12h $\rightarrow$ 4h} with zero regressions, by designing (HLD/LLD) and delivering \textbf{Direct Drive (PV2/Ultra) backup \& restore} across control, data, and management planes.
 
-  % \item \textbf{Resolved:} Multiple high-impact customer incidents independently, restoring service and meeting SLAs.  
+  \item Increased workload configuration flexibility for \textbf{100+ customers} (2K+ BI operations) and drove $\sim$\textbf{20\% brownfield adoption}, by ideating and shipping \textbf{Modify Protection} and \textbf{AFS Ops-tier Public Preview} across backend services, Azure CLI, and the Azure Portal.
 
-  \item \textbf{Cross-stack impact:} Provided end-to-end value across backend infra, frontend, CLI, K8s drivers, and Azure SDK integration to accelerate delivery and improve operability. Worked across layers to reduce customer friction and ship production-grade features.
+  \item Modernized core backup infrastructure with zero regressions, driving a \textbf{50\% reduction in GC latency} and clearing \textbf{28 CVEs to 0}, by leading the \textbf{Velero 1.13 $\rightarrow$ 1.16 upgrade}, patching OOM/CSI memory leaks, and shepherding 4 production releases.
+
+  \item Established upstream technical leadership, earning \textbf{Velero OSS Triage membership} with \textbf{18+ PRs}, by building an automated Azure-specific \textbf{E2E test pipeline} that caught a P0 authentication regression pre-release in Velero 1.17.
+
+  \item Elevated platform reliability to \textbf{99.9\% SLA} (+0.2\% gain) and eliminated recurring Sev2 incidents.
+
+  \item Accelerated incident resolution velocity, compressing \textbf{2--3 day} diagnostics into hours, by engineering AI/MCP automated log agents, resolving customer CRIs.
 \end{itemize}
