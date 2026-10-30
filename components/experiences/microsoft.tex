@@ -31,30 +31,28 @@
 
 \textbf{Microsoft} \hfill {\faMapMarker} \textbf{{Hyderabad, India}}
 
-\textit{\textbf{Software Engineer II} – Azure BCDR (Business Continuity \& Disaster Recovery)} 
+\textit{\textbf{Software Engineer II} – Azure Backup}
 \hfill {\faCalendar} Aug 2026 - Present \par
 \begin{itemize}
-  \item Scaled enterprise container recovery and expanded storage support by shipping \textbf{AFS Vault-tier backup \& restore} with the \textbf{Azure Files CSI} team, implementing PowerShell/CLI automation surfaces for \textbf{Elastic SAN}.
+  \item Own \textbf{end-to-end feature delivery and production reliability} across \textbf{Azure Kubernetes Service (AKS) and Azure Disk Backup}, spanning design, implementation, releases, customer support, and service reliability metrics.
 
-  \item Unblocked private storage restores for enterprise escalations by designing \textbf{multi-token AAD authentication} with a \textbf{zero-break fallback}, enabling isolated Vault and cross-region restores without exposing storage keys.
+  \item Expanded AKS backup coverage by delivering \textbf{Azure Files backup and restore to vault storage} with the storage team; enabled PowerShell and CLI support for \textbf{Elastic SAN}.
 
-  \item Eliminated critical vulnerability vectors across the ecosystem by architecting a reusable \textbf{Anti-SSRF} central library adopted across all repositories, enforcing \textbf{NSP} policies among the Service Fabric clusters.
+  \item Designed \textbf{Microsoft Entra ID authentication} for private storage restores, enabling secure recovery across regions while preserving compatibility with existing customers.
 
-  \item Reduced cloud retention costs and prevented production restore blockers by resolving core concurrency race conditions, deploying \textbf{GC audit \& stale-snapshot observability}, and onboarding AKS and PgFlex telemetry pipelines to \textbf{Aurora}.
+  \item Strengthened service security through a \textbf{shared request-validation library} to prevent server-side request forgery and enforcement of network isolation policies.
+
+  \item Resolved \textbf{concurrency-related restore failures} and improved snapshot-cleanup monitoring to detect stale resources and prevent recovery blockers.
 \end{itemize}
 
-\textit{\textbf{Software Engineer} – Azure BCDR (AKS \& Disk Backup)} 
+\textit{\textbf{Software Engineer} – Azure Backup (AKS \& Disk)}
 \hfill {\faCalendar} Aug 2024 - Aug 2026 \par
 \begin{itemize}
-  \item Unlocked high-performance enterprise adoption, onboarding \textbf{80+ subscriptions and 800+ disks} while cutting RPO from \textbf{12h $\rightarrow$ 4h} with zero regressions, by designing (HLD/LLD) and delivering \textbf{Direct Drive (PV2/Ultra) backup \& restore} across control, data, and management planes.
+  \item Designed and delivered \textbf{Premium SSD v2 and Ultra Disk backup and restore} across AKS and Disk Backup, supporting \textbf{80+ subscriptions and 800+ disks} and reducing the recovery point objective (RPO) from \textbf{12 hours to 4 hours}.
 
-  \item Increased workload configuration flexibility for \textbf{100+ customers} (2K+ BI operations) and drove $\sim$\textbf{20\% brownfield adoption}, by ideating and shipping \textbf{Modify Protection} and \textbf{AFS Ops-tier Public Preview} across backend services, Azure CLI, and the Azure Portal.
+  \item Delivered \textbf{backup configuration updates} across backend services, Azure Portal, and CLI for \textbf{100+ customers}; launched Azure Files operational backup preview, reaching approximately \textbf{20\% adoption among existing customers}.
 
-  \item Modernized core backup infrastructure with zero regressions, driving a \textbf{50\% reduction in GC latency} and clearing \textbf{28 CVEs to 0}, by leading the \textbf{Velero 1.13 $\rightarrow$ 1.16 upgrade}, patching OOM/CSI memory leaks, and shepherding 4 production releases.
+  \item Led upgrades of \textbf{Velero, the open-source Kubernetes backup framework integrated into Azure Backup}, improving cleanup performance by \textbf{50\%} and eliminating \textbf{28 known vulnerabilities}; contributed upstream fixes and Azure integration tests.
 
-  \item Established upstream technical leadership, earning \textbf{Velero OSS Triage membership} with \textbf{18+ PRs}, by building an automated Azure-specific \textbf{E2E test pipeline} that caught a P0 authentication regression pre-release in Velero 1.17.
-
-  \item Elevated platform reliability to \textbf{99.9\% SLA} (+0.2\% gain) and eliminated recurring Sev2 incidents.
-
-  \item Accelerated incident resolution velocity, compressing \textbf{2--3 day} diagnostics into hours, by engineering AI/MCP automated log agents, resolving customer CRIs.
+  \item Improved platform reliability to \textbf{99.9\%} and eliminated recurring high-severity incidents through resilience improvements; built \textbf{AI-assisted diagnostic tooling} that reduced customer incident investigations from \textbf{2--3 days to hours}.
 \end{itemize}
