@@ -1,0 +1,82 @@
+name: Build resume PDF
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'components/**'
+      - 'resume/**/*.tex'
+      - '.github/workflows/resume-pdf.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: resume-pdf-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Set up TinyTeX
+        uses: r-lib/actions/setup-tinytex@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05 # v2
+
+      - name: Install LaTeX packages and PDF utilities
+        run: |
+          tlmgr update --self
+          tlmgr install geometry enumitem xcolor hyperref fontspec fontawesome bbding import emoji graphics tools latexmk
+          sudo apt-get update
+          sudo apt-get install --yes poppler-utils
+
+      - name: Install the template's emoji font
+        run: |
+          font_dir="$(kpsewhich -var-value=TEXMFLOCAL)/fonts/truetype/twemoji"
+          mkdir -p "$font_dir"
+          curl --fail --location --silent --show-error \
+            https://github.com/mozilla/twemoji-colr/releases/download/v0.7.0/Twemoji.Mozilla.ttf \
+            --output "$font_dir/Twemoji.Mozilla.ttf"
+          mktexlsr
+          luaotfload-tool --update
+
+      - name: Build and verify the one-page resume
+        working-directory: resume
+        run: |
+          output_dir="$RUNNER_TEMP/resume-build"
+          mkdir -p "$output_dir"
+          latexmk -lualatex -interaction=nonstopmode -halt-on-error \
+            "-outdir=$output_dir" PriyanshChoudhary_Resume.tex
+          pages="$(pdfinfo "$output_dir/PriyanshChoudhary_Resume.pdf" | awk '/^Pages:/ {print $2}')"
+          if [ "$pages" != "1" ]; then
+            echo "::error::Resume must fit on one page; rendered page count: $pages"
+            exit 1
+          fi
+
+      - name: Attach PDF to the workflow run
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: resume-pdf
+          path: ${{ runner.temp }}/resume-build/PriyanshChoudhary_Resume.pdf
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Commit the updated PDF
+        env:
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          cp "$RUNNER_TEMP/resume-build/PriyanshChoudhary_Resume.pdf" resume/PriyanshChoudhary_Resume.pdf
+          git add -- resume/PriyanshChoudhary_Resume.pdf
+          if git diff --cached --quiet; then
+            echo "The committed PDF is already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update rendered resume PDF" \
+            -m "Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+          git push origin "HEAD:$BRANCH"
