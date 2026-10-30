@@ -56,6 +56,9 @@ jobs:
             echo "::error::Resume must fit on one page; rendered page count: $pages"
             exit 1
           fi
+          pdftoppm -png -singlefile -r 144 \
+            "$output_dir/PriyanshChoudhary_Resume.pdf" \
+            "$output_dir/PriyanshChoudhary_Resume"
 
       - name: Attach PDF to the workflow run
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -65,18 +68,19 @@ jobs:
           if-no-files-found: error
           retention-days: 90
 
-      - name: Commit the updated PDF
+      - name: Commit the updated PDF and README preview
         env:
           BRANCH: ${{ github.ref_name }}
         run: |
           cp "$RUNNER_TEMP/resume-build/PriyanshChoudhary_Resume.pdf" resume/PriyanshChoudhary_Resume.pdf
-          git add -- resume/PriyanshChoudhary_Resume.pdf
+          cp "$RUNNER_TEMP/resume-build/PriyanshChoudhary_Resume.png" resume/PriyanshChoudhary_Resume.png
+          git add -- resume/PriyanshChoudhary_Resume.pdf resume/PriyanshChoudhary_Resume.png
           if git diff --cached --quiet; then
-            echo "The committed PDF is already up to date."
+            echo "The committed PDF and preview are already up to date."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Update rendered resume PDF" \
+          git commit -m "Update rendered resume PDF and README preview" \
             -m "Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
           git push origin "HEAD:$BRANCH"

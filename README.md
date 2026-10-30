@@ -1,3 +1,11 @@
+# Resume
+
+[View or download the PDF](resume/PriyanshChoudhary_Resume.pdf)
+
+[![Rendered resume](resume/PriyanshChoudhary_Resume.png)](resume/PriyanshChoudhary_Resume.pdf)
+
+---
+
 # ModuLatex Resume
 
 ## What is it?
@@ -27,9 +35,10 @@ sources change on `master`, or manually from the repository's Actions tab. It:
 - Compiles with LuaLaTeX and the template's required fonts.
 - Fails if the resume exceeds one page.
 - Attaches the PDF as the `resume-pdf` workflow artifact, retained for 90 days.
-- Commits the updated PDF back to the triggering branch.
+- Renders a PNG preview for this README.
+- Commits the updated PDF and preview back to the triggering branch.
 
-PDF-only commits do not trigger another build. Repository rules must permit
+PDF/preview-only commits do not trigger another build. Repository rules must permit
 GitHub Actions to push to the target branch; if branch protection blocks the
 commit, the workflow reports the failure and the PDF remains available as an
 artifact on the workflow run.
